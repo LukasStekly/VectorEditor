@@ -7,14 +7,28 @@ public class Rectangle extends AbstractGraphicObject{
     protected int a;
     protected int b;
 
+
+
     public Rectangle (Point point, Color color, int a, int b)
     {
+        super(point, color);
+        this.a = a;
+        this.b=b;
+    }
+
+    public Rectangle (int x, int y, Color color, int a, int b)
+    {
+        super(x,y,color);
+        this.a=a;
+        this.b=b;
 
     }
 
     @Override
     public void draw(Graphics2D g) {
         g.setColor(color);
+
+        g.drawRect(point.x, point.y, a,b);
     }
 
     @Override
