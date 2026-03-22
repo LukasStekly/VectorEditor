@@ -25,7 +25,7 @@ public class Circle extends AbstractGraphicObject{
     public void draw(Graphics2D g) {
         g.setColor(color);
 
-        g.drawRect(point.x, point.y, a*2,a*2);
+        g.drawOval(point.x, point.y, a*2,a*2);
     }
 
     @Override
