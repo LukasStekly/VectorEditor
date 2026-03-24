@@ -32,6 +32,9 @@ public class Triangle extends AbstractGraphicObject{
 
     @Override
     public boolean contains(Point p) {
-        return false;
+        double vc = a * Math.sqrt(3)/2;
+        double dy = point.y -p.y;
+        int dx = (int) Math.round(dy / Math.tan(Math.PI/3));
+        return point.y >= p.y && p.y >= point.y-vc && point.x + dx <= p.x && p.x <= point.x + a -dx;
     }
 }

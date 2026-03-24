@@ -26,10 +26,12 @@ public class Circle extends AbstractGraphicObject{
         g.setColor(color);
 
         g.drawOval(point.x, point.y, a*2,a*2);
+
     }
 
     @Override
     public boolean contains(Point p) {
-        return false;
+
+        return Math.pow(p.x - point.x,2) + Math.pow(p.y-point.y,2) <= a*a ;
     }
 }
