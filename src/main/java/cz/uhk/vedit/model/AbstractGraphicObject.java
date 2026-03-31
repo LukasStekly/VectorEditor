@@ -66,4 +66,8 @@ public abstract class AbstractGraphicObject {
         return contains(new Point(x,y));
     }
 
+    public void moveBy(int dx, int dy){
+        point.translate(dx,dy);
+    }
+
 }

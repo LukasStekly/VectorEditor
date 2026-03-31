@@ -13,7 +13,7 @@ import javax.swing.*;
 public class DrawPanel extends JPanel {
     private List<AbstractGraphicObject> objects = new ArrayList<>();
     private AbstractGraphicObject selected;
-    private int dx,dy; //offset souradnice mysi od ref. bodu objektu (point)
+    private Point oldMouse; // minula pozice mysi pri tazeni
 
     public DrawPanel(){
         initGui();
@@ -33,8 +33,7 @@ public class DrawPanel extends JPanel {
             public void mousePressed(MouseEvent e) {
                  selected = findObjectUnderMouse(e.getPoint());
                  if (selected != null){
-                 dx = e.getX()-selected.getPoint().x;
-                 dy = e.getY()-selected.getPoint().y;
+                 oldMouse = e.getPoint();
                 }
             }
         });
@@ -42,7 +41,10 @@ public class DrawPanel extends JPanel {
             @Override
             public void mouseDragged(MouseEvent e) {
                 if (selected != null) {
-                    selected.setPoint(e.getX()-dx, e.getY()-dy);
+                    int dx = e.getX() - oldMouse.x;
+                    int dy = e.getY() - oldMouse.y;
+                    selected.moveBy(dx,dy);
+                    oldMouse = e.getPoint();
                     repaint(); // musime prekleslit pro presun
                 }
             }
@@ -63,6 +65,7 @@ public class DrawPanel extends JPanel {
 
     public void addObject(AbstractGraphicObject obj){
         objects.add(obj);
+        repaint();
     }
 
     @Override
