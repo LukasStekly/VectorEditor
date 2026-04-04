@@ -16,5 +16,6 @@ public class Main {
         });*/
 
         SwingUtilities.invokeLater(()-> new VeditFrame().setVisible(true));
+
     }
 }

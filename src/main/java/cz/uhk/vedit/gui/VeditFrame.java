@@ -8,6 +8,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
+import java.util.Random;
 import java.util.TreeMap;
 
 public class VeditFrame extends JFrame {
@@ -39,6 +40,19 @@ public class VeditFrame extends JFrame {
 //                drawPanel.repaint();
 //            }
 //        });
+
+        int minX = 20;
+        int minY = 20;
+        int maxX = 580;
+        int maxY = 580;
+        int minA = 20;
+        int maxA = 200;
+        int minB = 20;
+        int maxB = 200;
+        Random rand = new Random();
+
+
+
         var actSquare = new AbstractAction("Square") {
 
             @Override
@@ -73,10 +87,63 @@ public class VeditFrame extends JFrame {
         };
 
 
+        var RandActSquare = new AbstractAction("Random Square") {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int RanX = rand.nextInt(((maxX-minX)+1)) + minX;
+                int RanY = rand.nextInt(((maxY-minY)+1)) + minY;
+                int RanA = rand.nextInt(((maxA-minA)+1)) + minA;
+                drawPanel.addObject(new Square(RanX, RanY, Color.ORANGE, RanA));
+
+            }
+        };
+
+        var RandActRectangle = new AbstractAction("Random Rectangle") {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int RanX = rand.nextInt(((maxX-minX)+1)) + minX;
+                int RanY = rand.nextInt(((maxY-minY)+1)) + minY;
+                int RanA = rand.nextInt(((maxA-minA)+1)) + minA;
+                int RanB = rand.nextInt(((maxB-minB)+1)) + minB;
+                drawPanel.addObject(new Rectangle(RanX, RanY, Color.ORANGE, RanA, RanB));
+
+            }
+        };
+
+        var RandActTriangle = new AbstractAction("Random Triangle") {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int RanX = rand.nextInt(((maxX-minX)+1)) + minX;
+                int RanY = rand.nextInt(((maxY-minY)+1)) + minY;
+                int RanA = rand.nextInt(((maxA-minA)+1)) + minA;
+                drawPanel.addObject(new Triangle(RanX, RanY, Color.ORANGE, RanA));
+
+            }
+        };
+
+        var RandActCircle = new AbstractAction("Random Circle") {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int RanX = rand.nextInt(((maxX-minX)+1)) + minX;
+                int RanY = rand.nextInt(((maxY-minY)+1)) + minY;
+                int RanA = rand.nextInt(((maxA-minA)+1)) + minA;
+                drawPanel.addObject(new Circle(RanX, RanY, Color.ORANGE, RanA));
+
+            }
+        };
+
+
+
+
         tb.add(actSquare);
         tb.add(actRectangle);
         tb.add(actTriangle);
         tb.add(actCircle);
+        tb.add(RandActSquare);
+        tb.add(RandActRectangle);
+        tb.add(RandActCircle);
+        tb.add(RandActTriangle);
         return (tb);
     }
 
