@@ -43,7 +43,7 @@ public class VeditFrame extends JFrame {
 
         int minX = 20;
         int minY = 20;
-        int maxX = 580;
+        int maxX = 780;
         int maxY = 580;
         int minA = 20;
         int maxA = 200;
@@ -73,7 +73,7 @@ public class VeditFrame extends JFrame {
         var actTriangle = new AbstractAction("Triangle") {
             @Override
             public void actionPerformed(ActionEvent e) {
-                drawPanel.addObject(new Triangle(10, 10, Color.ORANGE, 50));
+                drawPanel.addObject(new Triangle(10, 60, Color.ORANGE, 50));
 
             }
         };
@@ -94,6 +94,17 @@ public class VeditFrame extends JFrame {
                 int RanX = rand.nextInt(((maxX-minX)+1)) + minX;
                 int RanY = rand.nextInt(((maxY-minY)+1)) + minY;
                 int RanA = rand.nextInt(((maxA-minA)+1)) + minA;
+                if (RanX + RanA >= 800){
+                    RanX = RanX /2;
+                    RanA = RanA /2;
+                }
+
+                if (RanY + RanA >= 600){
+                    RanY = RanY /2;
+                    RanA = RanA /2;
+                }
+
+
                 drawPanel.addObject(new Square(RanX, RanY, Color.ORANGE, RanA));
 
             }
@@ -106,6 +117,16 @@ public class VeditFrame extends JFrame {
                 int RanY = rand.nextInt(((maxY-minY)+1)) + minY;
                 int RanA = rand.nextInt(((maxA-minA)+1)) + minA;
                 int RanB = rand.nextInt(((maxB-minB)+1)) + minB;
+
+                if (RanX + RanA >= 800){
+                    RanX = RanX /2;
+                    RanA = RanA /2;
+                }
+
+                if (RanY + RanB >= 600){
+                    RanY = RanY /2;
+                    RanB = RanB /2;
+                }
                 drawPanel.addObject(new Rectangle(RanX, RanY, Color.ORANGE, RanA, RanB));
 
             }
@@ -117,6 +138,23 @@ public class VeditFrame extends JFrame {
                 int RanX = rand.nextInt(((maxX-minX)+1)) + minX;
                 int RanY = rand.nextInt(((maxY-minY)+1)) + minY;
                 int RanA = rand.nextInt(((maxA-minA)+1)) + minA;
+
+                if (RanX + RanA >= 800){
+                    RanX = RanX /2;
+                    RanA = RanA /2;
+                }
+
+                if (RanY + RanA >= 600 ){
+                    RanY = RanY /2;
+                    RanA = RanA /2;
+                }
+
+                if (RanA > RanY)
+                {
+                    RanY = RanY *2;
+                    RanA = RanA /2;
+                }
+
                 drawPanel.addObject(new Triangle(RanX, RanY, Color.ORANGE, RanA));
 
             }
@@ -128,6 +166,18 @@ public class VeditFrame extends JFrame {
                 int RanX = rand.nextInt(((maxX-minX)+1)) + minX;
                 int RanY = rand.nextInt(((maxY-minY)+1)) + minY;
                 int RanA = rand.nextInt(((maxA-minA)+1)) + minA;
+
+                if (RanX + RanA >= 800){
+                    RanX = RanX /2;
+                    RanA = RanA /2;
+                }
+
+                if (RanY + RanA >= 600){
+                    RanY = RanY /2;
+                    RanA = RanA /2;
+                }
+
+                RanA = RanA/2;
                 drawPanel.addObject(new Circle(RanX, RanY, Color.ORANGE, RanA));
 
             }
