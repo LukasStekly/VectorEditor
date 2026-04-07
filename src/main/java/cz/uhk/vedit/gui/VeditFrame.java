@@ -104,8 +104,14 @@ public class VeditFrame extends JFrame {
                     RanA = RanA /2;
                 }
 
+                int r = rand.nextInt(256);
+                int g = rand.nextInt(256);
+                int b = rand.nextInt(256);
 
-                drawPanel.addObject(new Square(RanX, RanY, Color.ORANGE, RanA));
+                Color randomColor = new Color(r, g, b);
+
+
+                drawPanel.addObject(new Square(RanX, RanY, randomColor, RanA));
 
             }
         };
@@ -127,7 +133,14 @@ public class VeditFrame extends JFrame {
                     RanY = RanY /2;
                     RanB = RanB /2;
                 }
-                drawPanel.addObject(new Rectangle(RanX, RanY, Color.ORANGE, RanA, RanB));
+
+
+                int r = rand.nextInt(256);
+                int g = rand.nextInt(256);
+                int b = rand.nextInt(256);
+
+                Color randomColor = new Color(r, g, b);
+                drawPanel.addObject(new Rectangle(RanX, RanY, randomColor, RanA, RanB));
 
             }
         };
@@ -155,7 +168,14 @@ public class VeditFrame extends JFrame {
                     RanA = RanA /2;
                 }
 
-                drawPanel.addObject(new Triangle(RanX, RanY, Color.ORANGE, RanA));
+                int r = rand.nextInt(256);
+                int g = rand.nextInt(256);
+                int b = rand.nextInt(256);
+
+                Color randomColor = new Color(r, g, b);
+
+
+                drawPanel.addObject(new Triangle(RanX, RanY, randomColor, RanA));
 
             }
         };
@@ -177,8 +197,15 @@ public class VeditFrame extends JFrame {
                     RanA = RanA /2;
                 }
 
+
+                int r = rand.nextInt(256);
+                int g = rand.nextInt(256);
+                int b = rand.nextInt(256);
+
+                Color randomColor = new Color(r, g, b);
+
                 RanA = RanA/2;
-                drawPanel.addObject(new Circle(RanX, RanY, Color.ORANGE, RanA));
+                drawPanel.addObject(new Circle(RanX, RanY, randomColor, RanA));
 
             }
         };
