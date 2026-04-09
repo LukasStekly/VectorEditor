@@ -87,7 +87,7 @@ public class VeditFrame extends JFrame {
         };
 
 
-        var RandActSquare = new AbstractAction("Random Square") {
+        var RandActSquare = new AbstractAction("RSquare") {
 
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -116,7 +116,7 @@ public class VeditFrame extends JFrame {
             }
         };
 
-        var RandActRectangle = new AbstractAction("Random Rectangle") {
+        var RandActRectangle = new AbstractAction("RRectangle") {
             @Override
             public void actionPerformed(ActionEvent e) {
                 int RanX = rand.nextInt(((maxX-minX)+1)) + minX;
@@ -145,7 +145,7 @@ public class VeditFrame extends JFrame {
             }
         };
 
-        var RandActTriangle = new AbstractAction("Random Triangle") {
+        var RandActTriangle = new AbstractAction("RTriangle") {
             @Override
             public void actionPerformed(ActionEvent e) {
                 int RanX = rand.nextInt(((maxX-minX)+1)) + minX;
@@ -180,7 +180,7 @@ public class VeditFrame extends JFrame {
             }
         };
 
-        var RandActCircle = new AbstractAction("Random Circle") {
+        var RandActCircle = new AbstractAction("RCircle") {
             @Override
             public void actionPerformed(ActionEvent e) {
                 int RanX = rand.nextInt(((maxX-minX)+1)) + minX;
@@ -226,15 +226,15 @@ public class VeditFrame extends JFrame {
 
 
     private void initSampleData() {
-        drawPanel.addObject(new Square(300,200,Color.CYAN,50));
-        drawPanel.addObject(new Square(440,200,Color.CYAN,50));
-        drawPanel.addObject(new Rectangle(350,380,Color.GREEN,90,50));
-        drawPanel.addObject(new Triangle(370,320,Color.BLACK,50));
-        drawPanel.addObject(new Circle(195,100,Color.RED,200));
+        drawPanel.addObject(new Square(75,480,Color.CYAN,15));
+        drawPanel.addObject(new Square(110,480,Color.CYAN,15));
+        drawPanel.addObject(new Rectangle(85,520,Color.GREEN,30,10));
+        drawPanel.addObject(new Triangle(93,510,Color.BLACK,15));
+        drawPanel.addObject(new Circle(50,450,Color.RED,50));
 
         Group gr = new Group();
         drawPanel.addObject(gr);
-        gr.addGraphObject(new Square(500,300,Color.MAGENTA, 100));
-        gr.addGraphObject(new Circle(500,300,Color.MAGENTA, 50));
+        gr.addGraphObject(new Square(680,450,Color.MAGENTA, 100));
+        gr.addGraphObject(new Circle(680,450,Color.MAGENTA, 50));
     }
 }
