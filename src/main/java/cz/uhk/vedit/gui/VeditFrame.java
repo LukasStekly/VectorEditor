@@ -224,6 +224,13 @@ public class VeditFrame extends JFrame {
             }
         };
 
+        var DeleteAll = new  AbstractAction("DeleteAll") {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                drawPanel.removeAll();
+            }
+        };
+
 
 
 
@@ -238,6 +245,7 @@ public class VeditFrame extends JFrame {
         tb.add(RandActTriangle);
         tb.addSeparator();
         tb.add(DeleteGroup);
+        tb.add(DeleteAll);
         return (tb);
     }
 
