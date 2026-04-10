@@ -68,6 +68,11 @@ public class DrawPanel extends JPanel {
         repaint();
     }
 
+    public void removeObject(AbstractGraphicObject obj){
+        objects.remove(obj);
+        repaint();
+    }
+
     @Override
     public void paint(Graphics g) {
         super.paint(g);

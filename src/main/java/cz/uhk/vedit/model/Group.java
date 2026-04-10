@@ -11,6 +11,10 @@ public class Group extends AbstractGraphicObject{
         items.add(o); // delegace
     }
 
+    public void deleteGraphObject(AbstractGraphicObject o){
+        items.remove(o);
+    }
+
     @Override
     public void draw(Graphics2D g) {
         items.forEach(it -> it.draw(g));
@@ -29,5 +33,9 @@ public class Group extends AbstractGraphicObject{
     @Override
     public void moveBy(int dx, int dy) {
         items.forEach(it -> it.moveBy(dx,dy));
+    }
+
+    public List<AbstractGraphicObject> getItems() {
+        return items;
     }
 }

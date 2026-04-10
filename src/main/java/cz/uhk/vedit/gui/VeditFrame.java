@@ -5,14 +5,13 @@ import cz.uhk.vedit.model.Rectangle;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
+import java.awt.event.*;
 import java.util.Random;
 import java.util.TreeMap;
 
 public class VeditFrame extends JFrame {
     private DrawPanel drawPanel = new DrawPanel();
+    Group gr = new Group();
 
     public VeditFrame(){
         super("FIM Vector Editor"); //setTitle
@@ -20,7 +19,7 @@ public class VeditFrame extends JFrame {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 
         add(drawPanel, BorderLayout.CENTER);
-        
+
         add(createToolbar(), BorderLayout.NORTH);
 
         initSampleData();
@@ -50,6 +49,7 @@ public class VeditFrame extends JFrame {
         int minB = 20;
         int maxB = 200;
         Random rand = new Random();
+
 
 
 
@@ -213,14 +213,31 @@ public class VeditFrame extends JFrame {
 
 
 
+        var DeleteGroup = new AbstractAction("DeleteGroup") {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+            var itemsInGroup = gr.getItems();
+
+            itemsInGroup.clear();
+            drawPanel.removeObject(gr);
+
+            }
+        };
+
+
+
+
         tb.add(actSquare);
         tb.add(actRectangle);
         tb.add(actTriangle);
         tb.add(actCircle);
+        tb.addSeparator();
         tb.add(RandActSquare);
         tb.add(RandActRectangle);
         tb.add(RandActCircle);
         tb.add(RandActTriangle);
+        tb.addSeparator();
+        tb.add(DeleteGroup);
         return (tb);
     }
 
@@ -232,7 +249,6 @@ public class VeditFrame extends JFrame {
         drawPanel.addObject(new Triangle(93,510,Color.BLACK,15));
         drawPanel.addObject(new Circle(50,450,Color.RED,50));
 
-        Group gr = new Group();
         drawPanel.addObject(gr);
         gr.addGraphObject(new Square(680,450,Color.MAGENTA, 100));
         gr.addGraphObject(new Circle(680,450,Color.MAGENTA, 50));
