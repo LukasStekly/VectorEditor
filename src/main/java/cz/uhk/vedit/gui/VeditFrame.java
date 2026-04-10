@@ -12,6 +12,10 @@ import java.util.TreeMap;
 public class VeditFrame extends JFrame {
     private DrawPanel drawPanel = new DrawPanel();
     Group gr = new Group();
+    int RanX = 0;
+    int RanY = 0;
+    int RanA = 0;
+    int RanB = 0;
 
     public VeditFrame(){
         super("FIM Vector Editor"); //setTitle
@@ -48,6 +52,7 @@ public class VeditFrame extends JFrame {
         int maxA = 200;
         int minB = 20;
         int maxB = 200;
+
         Random rand = new Random();
 
 
@@ -91,9 +96,9 @@ public class VeditFrame extends JFrame {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                int RanX = rand.nextInt(((maxX-minX)+1)) + minX;
-                int RanY = rand.nextInt(((maxY-minY)+1)) + minY;
-                int RanA = rand.nextInt(((maxA-minA)+1)) + minA;
+                 RanX = rand.nextInt(((maxX-minX)+1)) + minX;
+                 RanY = rand.nextInt(((maxY-minY)+1)) + minY;
+                 RanA = rand.nextInt(((maxA-minA)+1)) + minA;
                 if (RanX + RanA >= 800){
                     RanX = RanX /2;
                     RanA = RanA /2;
@@ -119,10 +124,10 @@ public class VeditFrame extends JFrame {
         var RandActRectangle = new AbstractAction("RRectangle") {
             @Override
             public void actionPerformed(ActionEvent e) {
-                int RanX = rand.nextInt(((maxX-minX)+1)) + minX;
-                int RanY = rand.nextInt(((maxY-minY)+1)) + minY;
-                int RanA = rand.nextInt(((maxA-minA)+1)) + minA;
-                int RanB = rand.nextInt(((maxB-minB)+1)) + minB;
+                 RanX = rand.nextInt(((maxX-minX)+1)) + minX;
+                 RanY = rand.nextInt(((maxY-minY)+1)) + minY;
+                 RanA = rand.nextInt(((maxA-minA)+1)) + minA;
+                 RanB = rand.nextInt(((maxB-minB)+1)) + minB;
 
                 if (RanX + RanA >= 800){
                     RanX = RanX /2;
@@ -148,9 +153,9 @@ public class VeditFrame extends JFrame {
         var RandActTriangle = new AbstractAction("RTriangle") {
             @Override
             public void actionPerformed(ActionEvent e) {
-                int RanX = rand.nextInt(((maxX-minX)+1)) + minX;
-                int RanY = rand.nextInt(((maxY-minY)+1)) + minY;
-                int RanA = rand.nextInt(((maxA-minA)+1)) + minA;
+                 RanX = rand.nextInt(((maxX-minX)+1)) + minX;
+                 RanY = rand.nextInt(((maxY-minY)+1)) + minY;
+                 RanA = rand.nextInt(((maxA-minA)+1)) + minA;
 
                 if (RanX + RanA >= 800){
                     RanX = RanX /2;
@@ -183,9 +188,9 @@ public class VeditFrame extends JFrame {
         var RandActCircle = new AbstractAction("RCircle") {
             @Override
             public void actionPerformed(ActionEvent e) {
-                int RanX = rand.nextInt(((maxX-minX)+1)) + minX;
-                int RanY = rand.nextInt(((maxY-minY)+1)) + minY;
-                int RanA = rand.nextInt(((maxA-minA)+1)) + minA;
+                 RanX = rand.nextInt(((maxX-minX)+1)) + minX;
+                 RanY = rand.nextInt(((maxY-minY)+1)) + minY;
+                 RanA = rand.nextInt(((maxA-minA)+1)) + minA;
 
                 if (RanX + RanA >= 800){
                     RanX = RanX /2;
