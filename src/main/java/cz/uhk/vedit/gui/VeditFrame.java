@@ -12,6 +12,12 @@ import java.util.TreeMap;
 public class VeditFrame extends JFrame {
     private DrawPanel drawPanel = new DrawPanel();
     Group gr = new Group();
+
+    public Group getSmajlik() {
+        return smajlik;
+    }
+
+    Group smajlik = new Group();
     int RanX = 0;
     int RanY = 0;
     int RanA = 0;
@@ -216,15 +222,38 @@ public class VeditFrame extends JFrame {
         };
 
 
+        var AddGroup = new AbstractAction("AddGroup") {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                    RanX = rand.nextInt((((maxX - 80)-minX)+1)) + minX ;
+                    RanY = rand.nextInt((((maxY-80)-minY)+1)) + minY ;
+
+
+                        smajlik.addGraphObject(new Square(RanX + 25,RanY + 25,Color.CYAN,15));
+                        smajlik.addGraphObject(new Square(RanX + 60,RanY + 25,Color.CYAN,15));
+                        smajlik.addGraphObject(new Rectangle(RanX + 35,RanY + 65,Color.GREEN,30,10));
+                        smajlik.addGraphObject(new Triangle(RanX + 43,RanY + 55,Color.BLACK,15));
+                        smajlik.addGraphObject(new Circle(RanX,RanY,Color.RED,50));
+
+                    drawPanel.addObject(smajlik);
+
+
+            }
+        };
+
 
 
         var DeleteGroup = new AbstractAction("DeleteGroup") {
             @Override
             public void actionPerformed(ActionEvent e) {
             var itemsInGroup = gr.getItems();
+            var itemsInSmajlik = smajlik.getItems();
 
             itemsInGroup.clear();
             drawPanel.removeObject(gr);
+            itemsInSmajlik.clear();
+            drawPanel.removeObject(smajlik);
 
             }
         };
@@ -249,6 +278,7 @@ public class VeditFrame extends JFrame {
         tb.add(RandActCircle);
         tb.add(RandActTriangle);
         tb.addSeparator();
+        tb.add(AddGroup);
         tb.add(DeleteGroup);
         tb.add(DeleteAll);
         return (tb);
@@ -265,5 +295,6 @@ public class VeditFrame extends JFrame {
         drawPanel.addObject(gr);
         gr.addGraphObject(new Square(680,450,Color.MAGENTA, 100));
         gr.addGraphObject(new Circle(680,450,Color.MAGENTA, 50));
+
     }
 }
